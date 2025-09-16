@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
         hostname: "media.newyorker.com",
       },
     ],
+    // Allow images from localhost
+    domains: ["localhost"],
   },
 };
 

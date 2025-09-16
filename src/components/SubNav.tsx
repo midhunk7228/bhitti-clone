@@ -10,7 +10,7 @@ export default function SubNav() {
     { href: "/magazine", label: "Magazine" },
     { href: "#", label: "Puzzles & Games" },
     { href: "#", label: "Video" },
-    { href: "#", label: "Podcasts" },
+    { href: "/podcasts", label: "Podcasts" },
     { href: "#", label: "Goings On" },
     { href: "#", label: "Shop" },
     { href: "#", label: "100th Anniversary" },
