@@ -33,7 +33,7 @@ export default function MagazineDetail({ slug }: { slug: string }) {
         "https://media.newyorker.com/photos/68b8a1efd7872a699ef75143/4:3/w_640,c_limit/r47329.jpg",
     },
   ];
-
+  console.log("slug", slug);
   return (
     <div className="max-w-4xl mx-auto p-4">
       <div className="text-center my-8">
