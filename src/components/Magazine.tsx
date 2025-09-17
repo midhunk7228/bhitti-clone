@@ -1,7 +1,27 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PdfFlipbook from "./PdfFlipbook";
 
 export default function Magazine() {
+  const [pdfFile, setPdfFile] = useState(null);
+
+  useEffect(() => {
+    const fetchPdf = async () => {
+      const response = await fetch(
+        "http://localhost:1337/api/magazines?filters[slug]=hilite&populate=*"
+      );
+      const apiResponse = await response.json();
+      const pdfUrl = apiResponse.data[0].magaine[0].url;
+      const fullPdfUrl = `http://localhost:1337${pdfUrl}`;
+      const pdfResponse = await fetch(fullPdfUrl);
+      const blob = await pdfResponse.blob();
+      setPdfFile(blob);
+    };
+    fetchPdf();
+  }, []);
+
   const sections = [
     {
       title: "GOINGS ON",
@@ -49,24 +69,10 @@ export default function Magazine() {
         <h1 className="text-4xl font-serif">THE MAGAZINE</h1>
         <p className="text-sm text-gray-500">September 15, 2025</p>
       </div>
-      <div className="flex justify-center mb-8">
-        <Image
-          src="https://media.newyorker.com/photos/68b9f7aa5cf5cfe54df4b29a/master/w_1600,c_limit/2025_09_15.jpg"
-          alt="Magazine Cover"
-          className="w-96 h-auto"
-          width={320}
-          height={480}
-        />
+      <div className="flex justify-center ">
+        {pdfFile ? <PdfFlipbook file={pdfFile} /> : <p>Loading PDF...</p>}
       </div>
-      <div className="flex justify-center space-x-4 mb-8">
-        <button className="bg-neutral-800 text-white px-4 py-2 w-24">
-          Previous
-        </button>
-        <button className="bg-gray-200 text-gray-700 px-4 py-2 w-24">
-          Next
-        </button>
-      </div>
-      <div className="text-center text-sm text-gray-500 mb-8">
+      <div className="text-center text-sm text-gray-500 mb-20">
         <p>
           Subscribe to our newsletter to get the latest on our new issue and
           more.{" "}
