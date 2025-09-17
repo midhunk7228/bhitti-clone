@@ -5,8 +5,7 @@ export default function MainContent() {
     main: {
       title: "A Hollywood Ending for an L.A. Legend",
       author: "By Dana Goodyear",
-      image:
-        "https://media.newyorker.com/photos/68bf13895b552c95e4726b15/master/w_2240,c_limit/TalibBabb_PleaseLikeGettyImages-2173153320.jpg",
+      image: "/bhitti-home.webp",
     },
     side: [
       {
@@ -28,20 +27,17 @@ export default function MainContent() {
     {
       title: "A New Biography of Martin Luther King, Jr.",
       author: "By David Remnick",
-      image:
-        "https://media.newyorker.com/photos/68bf13895b552c95e4726b15/master/w_2240,c_limit/TalibBabb_PleaseLikeGettyImages-2173153320.jpg",
+      image: "/bhitti-home.webp",
     },
     {
       title: "The Case for a Four-Day Workweek",
       author: "By James Surowiecki",
-      image:
-        "https://media.newyorker.com/photos/68bf13895b552c95e4726b15/master/w_2240,c_limit/TalibBabb_PleaseLikeGettyImages-2173153320.jpg",
+      image: "/bhitti-home.webp",
     },
     {
       title: "The Art of the Steal",
       author: "By Patrick Radden Keefe",
-      image:
-        "https://media.newyorker.com/photos/68bf13895b552c95e4726b15/master/w_2240,c_limit/TalibBabb_PleaseLikeGettyImages-2173153320.jpg",
+      image: "/bhitti-home.webp",
     },
   ];
 
@@ -49,38 +45,32 @@ export default function MainContent() {
     {
       title: "Intimate Daily Moments with Strangers",
       author: "By Pat Cassels and Siobhán Gallagher",
-      image:
-        "https://media.newyorker.com/photos/68bf13895b552c95e4726b15/master/w_2240,c_limit/TalibBabb_PleaseLikeGettyImages-2173153320.jpg",
+      image: "/bhitti-home.webp",
     },
     {
       title: "A Round of Gulf?",
       author: "By Ian Frazier",
-      image:
-        "https://media.newyorker.com/photos/68bf1dda2021409d17c32b78/master/w_1600,c_limit/1_GallagherCassels_intimatemoments.jpg",
+      image: "/round-of-gulf.webp",
     },
     {
       title: "Ranking Things from Quiet Luxury to Loud Luxury",
       author: "By Madeline Goetz and Jack Sentell",
-      image:
-        "https://media.newyorker.com/photos/68bf13895b552c95e4726b15/master/w_2240,c_limit/TalibBabb_PleaseLikeGettyImages-2173153320.jpg",
+      image: "/bhitti-home.webp",
     },
     {
       title: "The Gardener’s Dilemma",
       author: "By Tara Booth",
-      image:
-        "https://media.newyorker.com/photos/68bf13895b552c95e4726b15/master/w_2240,c_limit/TalibBabb_PleaseLikeGettyImages-2173153320.jpg",
+      image: "/bhitti-home.webp",
     },
     {
       title: "A Round of Gulf?",
       author: "By Ian Frazier",
-      image:
-        "https://media.newyorker.com/photos/68bf1dda2021409d17c32b78/master/w_1600,c_limit/1_GallagherCassels_intimatemoments.jpg",
+      image: "/round-of-gulf.webp",
     },
     {
       title: "The Gardener’s Dilemma",
       author: "By Tara Booth",
-      image:
-        "https://media.newyorker.com/photos/68bf13895b552c95e4726b15/master/w_2240,c_limit/TalibBabb_PleaseLikeGettyImages-2173153320.jpg",
+      image: "/bhitti-home.webp",
     },
   ];
 

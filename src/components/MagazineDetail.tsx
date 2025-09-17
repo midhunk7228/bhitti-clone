@@ -9,28 +9,24 @@ export default function MagazineDetail({ slug }: { slug: string }) {
     body: [
       "Earlier this year, the identical twins Adeev and Ezra Potash, who are from Omaha, Nebraska, were named that state’s first-ever Composer Laureates. As adolescents, Adeev (trumpet) and Ezra (trombone) caught the attention of Warren Buffett, who hired them to play at Berkshire Hathaway shareholder meetings; in high school, they were encouraged to apply to conservatories by Wynton Marsalis, with whom they have since performed. As adults, they’ve recorded and released three albums and written scores for “RuPaul’s Drag Race.” If there’s anything they’re more devoted to than music, it’s candy. On a recent Tuesday afternoon, the brothers, wearing matching cherry-red-and-lime-green eyeglasses, browsed the pick-and-mix bins at Kändi, a Swedish-style sweets shop in Los Angeles. They were joined by the actor Martin Starr, the co-founder of their new candy company, Sweet Stash, and by Ellen Van Dusen, of the cult housewares line Dusen Dusen, who’d designed the brightly colored packaging for their first product: a bag of multi-flavored gummies in the shape of music notes, called Jamz, which debuted this month.",
     ],
-    image:
-      "https://media.newyorker.com/photos/68bb4fb551c5e92a20015b43/master/w_2240,c_limit/r47480.png",
+    image: "/group.webp",
   };
 
   const moreArticles = [
     {
       title: "A New Biography of Martin Luther King, Jr.",
       author: "By David Remnick",
-      image:
-        "https://media.newyorker.com/photos/68bb4fb108e0d68ef9da768f/4:3/w_640,c_limit/r47481.png",
+      image: "/group.webp",
     },
     {
       title: "The Case for a Four-Day Workweek",
       author: "By James Surowiecki",
-      image:
-        "https://media.newyorker.com/photos/68bb4fb565eb1bcaeb8923d3/4:3/w_640,c_limit/r47483.png",
+      image: "/watch.webp",
     },
     {
       title: "The Art of the Steal",
       author: "By Patrick Radden Keefe",
-      image:
-        "https://media.newyorker.com/photos/68b8a1efd7872a699ef75143/4:3/w_640,c_limit/r47329.jpg",
+      image: "/disaster.webp",
     },
   ];
   console.log("slug", slug);

@@ -5,16 +5,16 @@ import Link from "next/link";
 import PdfFlipbook from "./PdfFlipbook";
 
 export default function Magazine() {
-  const [pdfFile, setPdfFile] = useState(null);
+  const [pdfFile, setPdfFile] = useState<Blob | null>(null);
 
   useEffect(() => {
     const fetchPdf = async () => {
       const response = await fetch(
-        "http://localhost:1337/api/magazines?filters[slug]=hilite&populate=*"
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/magazines?filters[slug]=sep-brick&populate=*`
       );
       const apiResponse = await response.json();
       const pdfUrl = apiResponse.data[0].magaine[0].url;
-      const fullPdfUrl = `http://localhost:1337${pdfUrl}`;
+      const fullPdfUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}${pdfUrl}`;
       const pdfResponse = await fetch(fullPdfUrl);
       const blob = await pdfResponse.blob();
       setPdfFile(blob);
@@ -32,8 +32,7 @@ export default function Magazine() {
           description:
             "Also: New York City Ballet and New York Philharmonic kick off their fall seasons; Non-binary performers take the stage in ‘I Am Loving, Plaza,’ and more.",
           author: "By Hilton Als, Sheldon Pearce, and more",
-          image:
-            "https://media.newyorker.com/photos/68b8b7e2d7872a699ef751d2/4:3/w_640,c_limit/JM0040%20Reverend%20Joyce%20McDonald%20_Our%20Lives%20Mattered%20(Breonna)_%20%5BView%201%5D,%202020,%20Air-dry%20clay,%20magic%20marker,%20white%20out,%20Elmber_s%20glue,%2018%20x%2011%20in,%20Courtesy%20Gordon%20Robichaux,%20NY_Photo%20Paul%20Salveson%20(1)%20copy.jpg",
+          image: "/joyer.webp",
         },
         {
           title: "Andal Holland on Stories of Community",
@@ -41,8 +40,7 @@ export default function Magazine() {
           description:
             "The ‘Luce,’ ‘Brooklyn,’ and ‘Moonlight’ actor recommends some of his favorites.",
           author: "",
-          image:
-            "https://media.newyorker.com/photos/6851c4bc2e50bf4f03899837/4:3/w_640,c_limit/BookCurrents_SocialSite.jpg",
+          image: "/holland.webp",
         },
       ],
     },
@@ -56,8 +54,7 @@ export default function Magazine() {
           description:
             "When winter is at its worst, Donald Trump stated that Kennedy would ‘go wild on health.’ Previous trials, previous trials.",
           author: "By Steve Coll",
-          image:
-            "https://media.newyorker.com/photos/68bb4fb951522f6b23ad2e19/4:3/w_640,c_limit/r47448.png",
+          image: "/walk.webp",
         },
       ],
     },
