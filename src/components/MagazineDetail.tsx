@@ -35,7 +35,7 @@ export default function MagazineDetail({ slug }: PageProps) {
   return (
     <div className="max-w-4xl mx-auto p-4">
       <div className="text-center my-8">
-        <p className="text-sm text-gray-500">Cavity Dept.</p>
+        <p className="text-sm text-gray-500">Cavity Dept.{slug}</p>
         <h1 className="text-5xl font-serif my-2">{article.title}</h1>
         <p className="text-gray-500">
           The Composer Laureate twins Adeev and Ezra Potash team up with the
