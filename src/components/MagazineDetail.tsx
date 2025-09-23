@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-interface PageProps {
+interface MagazineDetailProps {
   slug: string;
 }
-export default function MagazineDetail({ slug }: PageProps) {
+export default function MagazineDetail({ slug }: MagazineDetailProps) {
   const article = {
     title: "They’ll Take You to the Candy Shop",
     author: "By Hannah Goldfield",
