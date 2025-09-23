@@ -8,11 +8,6 @@ export default function Footer() {
     <footer className="bg-black text-white py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* <div className="md:col-span-1 flex items-center justify-center">
-            <div className="w-48 h-48 border border-[#fdc700bf] rounded-full flex items-center justify-center text-center">
-              <p className="text-sm">BHITTI</p>
-            </div>
-          </div> */}
           <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <h4 className="font-bold mb-2 text-[#fdc700bf]">SECTIONS</h4>
@@ -45,7 +40,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-2 invisible">.</h4>
+              <h4 className="font-bold mb-2 text-transparent">.</h4>
               <ul>
                 <li>
                   <a href="#" className="hover:text-[#fdc700bf]">
@@ -100,7 +95,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-2 invisible">.</h4>
+              <h4 className="font-bold mb-2 text-transparent">.</h4>
               <ul>
                 <li>
                   <a href="#" className="hover:text-[#fdc700bf]">
@@ -127,7 +122,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 grid grid-cols-2 md:grid-cols-5 gap-8 text-sm">
+        <div className="border-t border-gray-700 pt-8 grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
           <a href="#" className="hover:text-[#fdc700bf]">
             About
           </a>
@@ -161,8 +156,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-xs text-gray-400">
-          <div className="flex justify-between items-center">
-            <p>
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="mb-4 md:mb-0 text-center md:text-left">
               © 2025 Condé Nast. All rights reserved. Bhitti may earn a portion
               of sales from products that are purchased through our site as part
               of our Affiliate Partnerships with retailers. The material on this
@@ -173,23 +168,23 @@ export default function Footer() {
                 Ad Choices
               </a>
             </p>
-            <div className="flex space-x-4">
-              <span className="w-8 h-8">
+            <div className="flex space-x-4 mt-4 md:mt-0">
+              <span className="w-6 h-6">
                 <BsInstagram className="w-full h-full" />
               </span>
-              <span className="w-8 h-8">
+              <span className="w-6 h-6">
                 <FaThreads className="w-full h-full" />
               </span>
-              <span className="w-8 h-8">
+              <span className="w-6 h-6">
                 <RiTwitterXFill className="w-full h-full" />
               </span>
-              <span className="w-8 h-8">
+              <span className="w-6 h-6">
                 <FaFacebookF className="w-full h-full" />
               </span>
-              <span className="w-8 h-8">
+              <span className="w-6 h-6">
                 <FaLinkedinIn className="w-full h-full" />
               </span>
-              <span className="w-8 h-8">
+              <span className="w-6 h-6">
                 <BsYoutube className="w-full h-full" />
               </span>
             </div>

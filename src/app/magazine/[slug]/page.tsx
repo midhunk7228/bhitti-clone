@@ -9,12 +9,11 @@ export async function generateStaticParams() {
     { slug: "rfk-jr-brings-more-chaos-to-cover-policy-and-the-cdc" },
   ];
 }
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-export default function MagazineDetailPage({ params }: PageProps) {
+export default function MagazineDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   return (
     <div>
       <Header />
