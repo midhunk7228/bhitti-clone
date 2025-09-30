@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "out",
+    "site": "bhitti",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
