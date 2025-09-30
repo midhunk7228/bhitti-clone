@@ -34,7 +34,7 @@ function FeatureStory() {
     <div className="bg-white flex items-center justify-center my-8 font-serif">
       <div className=" w-full rounded-lg overflow-hidden">
         {/* Desktop Layout: Side by side */}
-        <div className="lg:flex lg:h-[600px]">
+        <div className="lg:flex">
           {/* Content Section - Left half on desktop, top on mobile */}
           <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center text-center items-center">
             <div className="max-w-md mx-auto lg:mx-0">
@@ -53,6 +53,7 @@ function FeatureStory() {
 
           {/* Image Section - Right half on desktop, bottom on mobile */}
           <div className="lg:w-1/2 relative  flex items-center justify-center p-8">
+            {/* <div className="relative w-full"> */}
             <div className="relative w-full aspect-square">
               {/* Geometric Art Pattern */}
               <Image
@@ -60,7 +61,7 @@ function FeatureStory() {
                 alt="Decorative art"
                 width={512}
                 height={400}
-                className="w-full h-full object-cover"
+                className="w-full h-auto"
               />
             </div>
           </div>
