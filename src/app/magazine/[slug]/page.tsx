@@ -1,20 +1,11 @@
-import MagazineDetail from "@/components/MagazineDetail";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-export async function generateStaticParams() {
-  return [
-    { slug: "ministry-of-joyer-mcdonalds-sculptures" },
-    { slug: "andal-holland-on-stories-of-community" },
-    { slug: "rfk-jr-brings-more-chaos-to-cover-policy-and-the-cdc" },
-  ];
-}
+import Header from "@/components/Header";
+import MagazineDetail from "@/components/MagazineDetail";
+import { articleProps, MagazineDetailPageProps } from "@/types";
 
 export default function MagazineDetailPage({
   params,
-}: {
-  params: { slug: string };
-}) {
+}: MagazineDetailPageProps) {
   return (
     <div>
       <Header />
@@ -22,4 +13,33 @@ export default function MagazineDetailPage({
       <Footer />
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles?populate=*`
+    );
+    if (!res.ok) {
+      console.error("Failed to fetch magazines:", res.status, res.statusText);
+      return [];
+    }
+    const posts = await res.json();
+    if (!posts || !Array.isArray(posts.data)) {
+      console.error("Invalid data format from API:", posts);
+      return [];
+    }
+    console.log(
+      "posts.data",
+      posts.data.map((post: articleProps) => ({
+        slug: post.slug,
+      }))
+    );
+    return posts.data.map((post: articleProps) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.error("Error in generateStaticParams:", error);
+    return [];
+  }
 }

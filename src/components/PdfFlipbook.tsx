@@ -1,11 +1,20 @@
 "use client";
-import { useRef, useState, forwardRef, useImperativeHandle } from "react";
+import {
+  useRef,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+} from "react";
 import HTMLFlipBook from "react-pageflip";
 import { pdfjs, Document, Page as PdfPage } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/build/pdf.worker.min.mjs",
+  import.meta.url
+).toString();
 
 interface PdfFlipbookProps {
   file: Blob | null;
@@ -31,6 +40,10 @@ const PdfFlipbook = forwardRef<PdfFlipbookHandle, PdfFlipbookProps>(
     const page_width = 350;
     const page_height = 450;
     const [zoomLevel] = useState(1.0);
+
+    useEffect(() => {
+      setNumPages(null);
+    }, [file]);
 
     useImperativeHandle(ref, () => ({
       flipNext: () => {

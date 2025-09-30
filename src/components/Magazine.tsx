@@ -50,7 +50,7 @@ export default function Magazine() {
         {
           title:
             "R.F.K., Jr., Brings More Chaos to Cover Policy and the C.D.C.",
-          slug: "rfk-jr-brings-more-chaos-to-cover-policy-and-the-cdc",
+          slug: "the-internet-s-own-boy",
           description:
             "When winter is at its worst, Donald Trump stated that Kennedy would ‘go wild on health.’ Previous trials, previous trials.",
           author: "By Steve Coll",
