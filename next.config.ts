@@ -1,17 +1,20 @@
 import type { NextConfig } from "next";
+import type { Configuration } from "webpack";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   output: "export",
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "media.newyorker.com",
+    unoptimized: true,
+  },
+  webpack: (config: Configuration) => {
+    config.resolve = {
+      ...(config.resolve || {}),
+      fallback: {
+        ...(config.resolve?.fallback || {}),
+        canvas: false,
       },
-    ],
-    // Allow images from localhost
-    domains: ["localhost"],
+    };
+    return config;
   },
 };
 
