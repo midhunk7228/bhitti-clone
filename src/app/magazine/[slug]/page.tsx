@@ -5,6 +5,9 @@ import Header from "@/components/Header";
 import MagazineDetail from "@/components/MagazineDetail";
 import { articleProps, MagazineDetailPageProps } from "@/types";
 
+interface MagazineDetailPageProps {
+  params: { slug: string };
+}
 export default function MagazineDetailPage({
   params,
 }: MagazineDetailPageProps) {
