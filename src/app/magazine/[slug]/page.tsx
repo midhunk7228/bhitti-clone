@@ -1,3 +1,5 @@
+export const revalidate = 60; // re-build every 60s
+
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MagazineDetail from "@/components/MagazineDetail";
@@ -43,3 +45,5 @@ export async function generateStaticParams() {
     return [];
   }
 }
+
+export const dynamic = "force-dynamic"; // always fetch fresh
