@@ -57,7 +57,7 @@ function FeatureStory() {
             <div className="relative w-full aspect-square">
               {/* Geometric Art Pattern */}
               <Image
-                src="/r47424.png"
+                src="/person.webp"
                 alt="Decorative art"
                 width={512}
                 height={400}
