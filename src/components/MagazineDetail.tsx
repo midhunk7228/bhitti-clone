@@ -1,9 +1,40 @@
+"use client";
 import Image from "next/image";
+import { MagazineDetailProps, magazineDetailsProps } from "@/types";
+import { useEffect, useState } from "react";
+import StrapiBlocksRenderer from "@/components/StrapiBlocksRenderer";
 
-interface MagazineDetailProps {
-  slug: string;
-}
 export default function MagazineDetail({ slug }: MagazineDetailProps) {
+  const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
+  const [magaine, setMagazine] = useState<magazineDetailsProps>({
+    id: null,
+    documentId: "",
+    title: "",
+    description: "",
+    slug: "",
+    createdAt: "",
+    updatedAt: "",
+    publishedAt: "",
+    subgenre: "",
+    tags: [],
+    content: null,
+    cover: null,
+    author: null,
+    category: null,
+    blocks: null,
+  });
+  useEffect(() => {
+    const fetchMagazineDetails = async () => {
+      const response = await fetch(
+        `${STRAPI_URL}/api/articles?filters[slug]=${slug}&populate=*`
+      );
+      const apiResponse = await response.json();
+      if (apiResponse?.data) {
+        setMagazine(apiResponse?.data[0]);
+      }
+    };
+    fetchMagazineDetails();
+  }, []);
   const article = {
     title: "They’ll Take You to the Candy Shop",
     author: "By Hannah Goldfield",
@@ -32,32 +63,53 @@ export default function MagazineDetail({ slug }: MagazineDetailProps) {
       image: "/disaster.webp",
     },
   ];
+  {
+    console.log("magaine", magaine);
+  }
   return (
     <div className="max-w-4xl mx-auto p-4">
       <div className="text-center my-8">
-        <p className="text-sm text-gray-500">Cavity Dept.{slug}</p>
-        <h1 className="text-5xl font-serif my-2">{article.title}</h1>
-        <p className="text-gray-500">
-          The Composer Laureate twins Adeev and Ezra Potash team up with the
-          actor Martin Starr to build the perfect gummy.
+        {/* <p className="text-sm text-gray-500">Cavity Dept.{slug}</p> */}
+        <p className="text-sm font-serif text-[#db3435]">
+          {magaine?.category?.name.toUpperCase()}
         </p>
-        <p className="text-sm text-gray-500 mt-2">By {article.author}</p>
-        <p className="text-sm text-gray-500">{article.date}</p>
+        <h1 className="text-5xl font-serif my-2">{magaine.title}</h1>
+        <p className="text-gray-500">{magaine.description}</p>
+        <p className="text-sm font-semibold text-gray-900 mt-2">
+          By {magaine.author?.name}
+        </p>
+        <p className="text-sm text-gray-700">
+          {magaine.publishedAt
+            ? new Date(magaine.publishedAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            : ""}
+        </p>
       </div>
       <Image
-        src={article.image}
-        alt={article.title}
-        className="w-2/3 h-auto my-8"
+        src={magaine?.cover ? STRAPI_URL + magaine.cover.url : "/party.png"}
+        alt={magaine.cover?.alternativeText || "party.png"}
+        className="w-full h-full object-cover my-8"
         width={320}
         height={480}
       />
       <p className="text-xs text-gray-500 text-center mb-8">
         {article.illustration}
       </p>
+
       <div className="prose lg:prose-xl mx-auto">
-        {article.body.map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
-        ))}
+        {magaine?.content ? (
+          // <div dangerouslySetInnerHTML={{ __html: magaine.content }} />
+          <StrapiBlocksRenderer content={magaine.content} />
+        ) : (
+          // <article>
+          //   <ReactMarkdown>{magaine.content}</ReactMarkdown>
+          // </article>
+          // <StrapiBlocksRenderer content={magaine.content} />
+          <p>{article.body[0]}</p>
+        )}
       </div>
 
       {/* Subscription prompt */}

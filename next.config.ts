@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import type { Configuration } from "webpack";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  // output: "export",
   images: {
     unoptimized: true,
   },
